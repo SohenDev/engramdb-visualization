@@ -53,7 +53,7 @@ const TRANSLATED_MENU_ITEMS: Record<string, MessageDescriptor> = {
 
   'profile-settings': defineMessage({ id: 'nav.profile-settings', message: 'Preferences' }),
   'change-password': defineMessage({ id: 'nav.change-password', message: 'Change password' }),
-  'sign-out': defineMessage({ id: 'nav.sign-out', message: 'Sign out' }),
+  'sign-out': defineMessage({ id: 'nav.sign-out', message: 'Sign out 退出' }),
 };
 
 export default TRANSLATED_MENU_ITEMS;

@@ -51,9 +51,10 @@ func (hs *HTTPServer) getProfileNode(c *models.ReqContext) *dtos.NavLink {
 	}
 
 	if !setting.DisableSignoutMenu {
+		// 退出
 		// add sign out first
 		children = append(children, &dtos.NavLink{
-			Text:         "Sign out",
+			Text:         "退出",
 			Id:           "sign-out",
 			Url:          hs.Cfg.AppSubURL + "/logout",
 			Icon:         "arrow-from-right",

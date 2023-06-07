@@ -87,7 +87,7 @@ export class LoginCtrl extends PureComponent<Props, State> {
     this.setState({
       isLoggingIn: true,
     });
-
+    debugger
     getBackendSrv()
       .post('/login', formModel)
       .then((result: any) => {
