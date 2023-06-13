@@ -70,6 +70,12 @@ export class UPlotChart extends React.Component<PlotProps, UPlotChartState> {
       height: this.props.height,
       ms: 1 as 1,
       ...this.props.config.getConfig(),
+      // 禁止拖动选择改变图表 gary
+      cursor: {
+        drag: {
+          x: false,y:false,setScale: false
+        }
+      }
     };
 
     pluginLog('UPlot', false, 'Reinitializing plot', config);

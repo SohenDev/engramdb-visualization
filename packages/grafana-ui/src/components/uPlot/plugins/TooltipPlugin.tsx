@@ -97,6 +97,29 @@ export const TooltipPlugin: React.FC<TooltipPluginProps> = ({
       u.root.parentElement?.addEventListener('blur', plotLeave);
       u.over.addEventListener('mouseleave', plotLeave);
 
+      // 添加点击事件
+      let clientX;
+      let clientY;
+      u.over.addEventListener('mousedown', e=>{
+        clientX = e.clientX;
+        clientY = e.clientY;
+      });
+      u.over.addEventListener('mouseup', e=>{
+        console.log('timeZone',timeZone)
+        console.log('focusedSeriesIdx',focusedSeriesIdx)
+        console.log('focusedPointIdx',focusedPointIdx)
+        console.log('focusedPointIdxs',focusedPointIdxs)
+        console.log('timeValue无','')
+        if(window.garyObj && window.garyObj.time) {
+          window.garyObj.time = timeZone
+        }
+        if(e.clientX == clientX && e.clientY == clientY) {
+
+        }
+        
+      });
+      // 添加点击事件结束
+
       if (sync && sync() === DashboardCursorSync.Crosshair) {
         u.root.classList.add('shared-crosshair');
       }
