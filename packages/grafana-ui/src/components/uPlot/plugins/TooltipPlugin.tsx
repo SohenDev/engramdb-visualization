@@ -35,6 +35,7 @@ interface TooltipPluginProps {
 }
 
 const TOOLTIP_OFFSET = 10;
+let timeValue: any = '';
 
 /**
  * @alpha
@@ -100,23 +101,28 @@ export const TooltipPlugin: React.FC<TooltipPluginProps> = ({
       // 添加点击事件
       let clientX;
       let clientY;
-      u.over.addEventListener('mousedown', e=>{
+
+      u.over.addEventListener("mousedown", e => {
         clientX = e.clientX;
         clientY = e.clientY;
       });
-      u.over.addEventListener('mouseup', e=>{
-        console.log('timeZone',timeZone)
-        console.log('focusedSeriesIdx',focusedSeriesIdx)
-        console.log('focusedPointIdx',focusedPointIdx)
-        console.log('focusedPointIdxs',focusedPointIdxs)
-        console.log('timeValue无','')
-        if(window.garyObj && window.garyObj.time) {
-          window.garyObj.time = timeZone
-        }
-        if(e.clientX == clientX && e.clientY == clientY) {
 
+      u.over.addEventListener("mouseup", e => {
+        console.log('timeZone', timeZone)
+        console.log('u', u)
+        console.log('focusedSeriesIdx', focusedSeriesIdx)
+        console.log('focusedPointIdx', focusedPointIdx)
+        console.log('focusedPointIdxs', focusedPointIdxs)
+        console.log('timeValue', timeValue)
+        if (window.garyObj && window.garyObj.time) {
+          window.garyObj.time = timeValue;
         }
-        
+        // clicked in-place
+        if (e.clientX == clientX && e.clientY == clientY) {
+          // if (seriesIdx != null && dataIdx != null) {
+          //   onclick(u, seriesIdx, dataIdx);
+          // }
+        }
       });
       // 添加点击事件结束
 
@@ -206,6 +212,8 @@ export const TooltipPlugin: React.FC<TooltipPluginProps> = ({
   let tooltip: React.ReactNode = null;
 
   let xVal = xFieldFmt(xField!.values.get(focusedPointIdx)).text;
+  // 时间赋值
+  timeValue = xVal
 
   if (!renderTooltip) {
     // when interacting with a point in single mode
