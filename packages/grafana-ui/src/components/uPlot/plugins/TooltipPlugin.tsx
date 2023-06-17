@@ -99,7 +99,9 @@ export const TooltipPlugin: React.FC<TooltipPluginProps> = ({
       u.over.addEventListener('mouseleave', plotLeave);
 
       // 添加点击事件
+      // @ts-ignore
       let clientX;
+      // @ts-ignore
       let clientY;
 
       u.over.addEventListener("mousedown", e => {
@@ -114,10 +116,13 @@ export const TooltipPlugin: React.FC<TooltipPluginProps> = ({
         console.log('focusedPointIdx', focusedPointIdx)
         console.log('focusedPointIdxs', focusedPointIdxs)
         console.log('timeValue', timeValue)
+        // @ts-ignore
         if (window.garyObj && window.garyObj.time) {
+          // @ts-ignore
           window.garyObj.time = timeValue;
         }
         // clicked in-place
+        // @ts-ignore
         if (e.clientX == clientX && e.clientY == clientY) {
           // if (seriesIdx != null && dataIdx != null) {
           //   onclick(u, seriesIdx, dataIdx);
