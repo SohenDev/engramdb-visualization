@@ -18,6 +18,12 @@ module.exports = (env = {}) =>
       dark: './public/sass/grafana.dark.scss',
       light: './public/sass/grafana.light.scss',
     },
+    // 前端打包问题设置
+    // WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (500 KiB). This can impact web performance.
+    performance: {
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000
+    },
 
     module: {
       // Note: order is bottom-to-top and/or right-to-left
