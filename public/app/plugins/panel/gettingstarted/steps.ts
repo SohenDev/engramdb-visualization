@@ -12,7 +12,7 @@ const step2Key = `${keyPrefix}${step2TutorialTitle.replace(' ', '-').trim().toLo
 
 export const getSteps = (): SetupStep[] => [
   {
-    heading: 'Welcome to Grafana',
+    heading: '欢迎来到数据可视化页面',
     subheading: 'The steps below will guide you to quickly finish setting up your Grafana installation.',
     title: 'Basic',
     info: 'The steps below will guide you to quickly finish setting up your Grafana installation.',
