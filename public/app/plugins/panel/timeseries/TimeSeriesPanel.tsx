@@ -85,21 +85,21 @@ export const TimeSeriesPanel: React.FC<TimeSeriesPanelProps> = ({
                       timeZone={timeZone}
                       replaceVariables={replaceVariables}
                       defaultItems={[
-                        {
-                          items: [
-                            {
-                              label: 'Add annotation',
-                              ariaLabel: 'Add annotation',
-                              icon: 'comment-alt',
-                              onClick: (e, p) => {
-                                if (!p) {
-                                  return;
-                                }
-                                startAnnotating({ coords: p.coords });
-                              },
-                            },
-                          ],
-                        },
+                        // {
+                        //   items: [
+                        //     {
+                        //       label: 'Add annotation',
+                        //       ariaLabel: 'Add annotation',
+                        //       icon: 'comment-alt',
+                        //       onClick: (e, p) => {
+                        //         if (!p) {
+                        //           return;
+                        //         }
+                        //         startAnnotating({ coords: p.coords });
+                        //       },
+                        //     },
+                        //   ],
+                        // },
                       ]}
                     />
                   );
