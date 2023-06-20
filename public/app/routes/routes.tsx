@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import ErrorPage from 'app/core/components/ErrorPage/ErrorPage';
 import { LoginPage } from 'app/core/components/Login/LoginPage';
+import { PlatformPage } from 'app/core/components/Platform/PlatformPage';
 import config from 'app/core/config';
 import { contextSrv } from 'app/core/services/context_srv';
 import UserAdminPage from 'app/features/admin/UserAdminPage';
@@ -314,6 +315,11 @@ export function getAppRoutes(): RouteDescriptor[] {
       path: '/login',
       component: LoginPage,
       pageClass: 'login-page sidemenu-hidden',
+    },
+    {
+      path: '/platform',
+      component: PlatformPage,
+      pageClass: 'platform-page sidemenu-hidden',
     },
     {
       path: '/invite/:code',
