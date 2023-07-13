@@ -158,7 +158,7 @@ export const DashNav = React.memo<Props>((props) => {
     }
 
     if (canStar) {
-      let desc = isStarred ? 'Unmark as favorite' : 'Mark as favorite';
+      let desc = isStarred ? '取消标记为最喜欢的' : '标记为最喜欢的';
       buttons.push(
         <DashNavButton
           tooltip={desc}
@@ -172,7 +172,7 @@ export const DashNav = React.memo<Props>((props) => {
     }
 
     if (canShare) {
-      let desc = 'Share dashboard or panel';
+      let desc = '共享仪表板或面板';
       buttons.push(
         <ModalsController key="button-share">
           {({ showModal, hideModal }) => (
@@ -245,7 +245,7 @@ export const DashNav = React.memo<Props>((props) => {
     const snapshotUrl = snapshot && snapshot.originalUrl;
     const buttons: ReactNode[] = [];
     const tvButton = (
-      <ToolbarButton tooltip="Cycle view mode" icon="monitor" onClick={onToggleTVMode} key="tv-button" />
+      <ToolbarButton tooltip="循环查看模式" icon="monitor" onClick={onToggleTVMode} key="tv-button" />
     );
 
     if (isPlaylistRunning()) {
@@ -257,7 +257,7 @@ export const DashNav = React.memo<Props>((props) => {
     }
 
     if (canEdit && !isFullscreen) {
-      buttons.push(<ToolbarButton tooltip="Add panel" icon="panel-add" onClick={onAddPanel} key="button-panel-add" />);
+      buttons.push(<ToolbarButton tooltip="添加面板" icon="panel-add" onClick={onAddPanel} key="button-panel-add" />);
     }
 
     if (canSave && !isFullscreen) {
@@ -265,7 +265,7 @@ export const DashNav = React.memo<Props>((props) => {
         <ModalsController key="button-save">
           {({ showModal, hideModal }) => (
             <ToolbarButton
-              tooltip="Save dashboard"
+              tooltip="保存仪表板"
               icon="save"
               onClick={() => {
                 showModal(SaveDashboardProxy, {
@@ -282,7 +282,7 @@ export const DashNav = React.memo<Props>((props) => {
     if (snapshotUrl) {
       buttons.push(
         <ToolbarButton
-          tooltip="Open original dashboard"
+          tooltip="打开原始仪表板"
           onClick={onOpenSnapshotOriginal}
           icon="link"
           key="button-snapshot"
@@ -292,7 +292,7 @@ export const DashNav = React.memo<Props>((props) => {
 
     if (showSettings) {
       buttons.push(
-        <ToolbarButton tooltip="Dashboard settings" icon="cog" onClick={onOpenSettings} key="button-settings" />
+        <ToolbarButton tooltip="仪表板设置" icon="cog" onClick={onOpenSettings} key="button-settings" />
       );
     }
 

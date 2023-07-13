@@ -69,7 +69,7 @@ export const TimePickerFooter: FC<Props> = (props) => {
         </div>
         <div className={style.spacer} />
         <Button variant="secondary" onClick={onToggleChangeTimeSettings} size="sm">
-          Change time settings
+          更改时间设置
         </Button>
       </section>
       {isEditing ? (
@@ -78,8 +78,8 @@ export const TimePickerFooter: FC<Props> = (props) => {
             <RadioButtonGroup
               value={editMode}
               options={[
-                { label: 'Time Zone', value: 'tz' },
-                { label: 'Fiscal year', value: 'fy' },
+                { label: '时区', value: 'tz' },
+                { label: '财政年度', value: 'fy' },
               ]}
               onChange={setEditMode}
             ></RadioButtonGroup>
@@ -106,7 +106,7 @@ export const TimePickerFooter: FC<Props> = (props) => {
               aria-label={selectors.components.TimeZonePicker.containerV2}
               className={cx(style.timeZoneContainer, style.timeSettingContainer)}
             >
-              <Field className={style.fiscalYearField} label={'Fiscal year start month'}>
+              <Field className={style.fiscalYearField} label={'财政年度开始月份'}>
                 <Select
                   value={fiscalYearStartMonth}
                   options={monthOptions}

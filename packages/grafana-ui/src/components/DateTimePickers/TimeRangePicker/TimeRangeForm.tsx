@@ -116,7 +116,7 @@ export const TimeRangeForm: React.FC<Props> = (props) => {
   return (
     <div>
       <div className={style.fieldContainer}>
-        <Field label="From" invalid={from.invalid} error={from.errorMessage}>
+        <Field label="从" invalid={from.invalid} error={from.errorMessage}>
           <Input
             onClick={(event) => event.stopPropagation()}
             onChange={(event) => onChange(event.currentTarget.value, to.value)}
@@ -128,7 +128,7 @@ export const TimeRangeForm: React.FC<Props> = (props) => {
         {fyTooltip}
       </div>
       <div className={style.fieldContainer}>
-        <Field label="To" invalid={to.invalid} error={to.errorMessage}>
+        <Field label="到" invalid={to.invalid} error={to.errorMessage}>
           <Input
             onClick={(event) => event.stopPropagation()}
             onChange={(event) => onChange(from.value, event.currentTarget.value)}
@@ -140,7 +140,7 @@ export const TimeRangeForm: React.FC<Props> = (props) => {
         {fyTooltip}
       </div>
       <Button data-testid={selectors.components.TimePicker.applyTimeRange} onClick={onApply}>
-        Apply time range
+        应用时间范围
       </Button>
 
       <TimePickerCalendar

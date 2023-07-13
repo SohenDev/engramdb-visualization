@@ -58,7 +58,7 @@ export const TimeZonePicker: React.FC<Props> = (props) => {
     <Select
       inputId={inputId}
       value={selected}
-      placeholder="Type to search (country, city, abbreviation)"
+      placeholder="输入搜索内容（国家、城市、缩写）"
       autoFocus={autoFocus}
       openMenuOnFocus={true}
       width={width}

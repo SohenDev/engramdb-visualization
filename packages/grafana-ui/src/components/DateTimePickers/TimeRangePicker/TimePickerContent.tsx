@@ -85,7 +85,7 @@ export const TimePickerContentWithScreenSize: React.FC<PropsWithScreenSize> = (p
                 autoFocus={true}
                 value={searchTerm}
                 onChange={setSearchQuery}
-                placeholder={'Search quick ranges'}
+                placeholder={'搜索快速范围'}
               />
             </div>
             <CustomScrollbar>
@@ -148,7 +148,7 @@ const NarrowScreenForm: React.FC<FormProps> = (props) => {
           aria-expanded={!collapsed}
           aria-controls="expanded-timerange"
         >
-          <TimePickerTitle>Absolute time range</TimePickerTitle>
+          <TimePickerTitle>绝对时间范围</TimePickerTitle>
           {!hideQuickRanges && <Icon name={!collapsed ? 'angle-up' : 'angle-down'} />}
         </button>
       </div>
@@ -159,7 +159,7 @@ const NarrowScreenForm: React.FC<FormProps> = (props) => {
           </div>
           {showHistory && (
             <TimeRangeList
-              title="Recently used absolute ranges"
+              title="最近使用的绝对范围"
               options={historyOptions}
               onChange={onChangeTimeOption}
               placeholderEmpty={null}
@@ -183,7 +183,7 @@ const FullScreenForm: React.FC<FormProps> = (props) => {
     <>
       <div className={styles.container}>
         <div className={styles.title} data-testid={selectors.components.TimePicker.absoluteTimeRangeTitle}>
-          <TimePickerTitle>Absolute time range</TimePickerTitle>
+          <TimePickerTitle>绝对时间范围</TimePickerTitle>
         </div>
         <TimeRangeForm
           value={value}
@@ -197,7 +197,7 @@ const FullScreenForm: React.FC<FormProps> = (props) => {
       {props.showHistory && (
         <div className={styles.recent}>
           <TimeRangeList
-            title="Recently used absolute ranges"
+            title="最近使用的绝对范围"
             options={historyOptions || []}
             onChange={onChangeTimeOption}
             placeholderEmpty={<EmptyRecentList />}
@@ -213,24 +213,25 @@ const EmptyRecentList = memo(() => {
   const styles = getEmptyListStyles(theme);
 
   return (
-    <div className={styles.container}>
-      <div>
-        <span>
-          It looks like you haven&apos;t used this time picker before. As soon as you enter some time intervals,
-          recently used intervals will appear here.
-        </span>
-      </div>
-      <div>
-        <a
-          className={styles.link}
-          href="https://grafana.com/docs/grafana/latest/dashboards/time-range-controls"
-          target="_new"
-        >
-          Read the documentation
-        </a>
-        <span> to find out more about how to enter custom time ranges.</span>
-      </div>
-    </div>
+    <div className={styles.container}>&nbsp;</div>
+    // <div className={styles.container}>
+    //   <div>
+    //     <span>
+    //       It looks like you haven&apos;t used this time picker before. As soon as you enter some time intervals,
+    //       recently used intervals will appear here.
+    //     </span>
+    //   </div>
+    //   <div>
+    //     <a
+    //       className={styles.link}
+    //       href="https://grafana.com/docs/grafana/latest/dashboards/time-range-controls"
+    //       target="_new"
+    //     >
+    //       Read the documentation
+    //     </a>
+    //     <span> to find out more about how to enter custom time ranges.</span>
+    //   </div>
+    // </div>
   );
 });
 

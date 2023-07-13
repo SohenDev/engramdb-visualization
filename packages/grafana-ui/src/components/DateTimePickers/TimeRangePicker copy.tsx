@@ -146,7 +146,7 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
       )}
 
       <Tooltip content={ZoomOutTooltip} placement="bottom">
-        <ToolbarButton aria-label="缩小时间范围" onClick={onZoom} icon="search-minus" variant={variant} />
+        <ToolbarButton aria-label="Zoom out time range" onClick={onZoom} icon="search-minus" variant={variant} />
       </Tooltip>
     </ButtonGroup>
   );
@@ -154,7 +154,7 @@ export function UnthemedTimeRangePicker(props: TimeRangePickerProps): ReactEleme
 
 const ZoomOutTooltip = () => (
   <>
-    时间范围缩小 <br /> CTRL+Z
+    Time range zoom out <br /> CTRL+Z
   </>
 );
 

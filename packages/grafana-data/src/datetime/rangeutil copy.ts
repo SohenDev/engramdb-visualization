@@ -44,26 +44,26 @@ const rangeOptions: TimeOption[] = [
   { from: 'now-1y/y', to: 'now-1y/y', display: 'Previous year' },
   { from: 'now-1y/fy', to: 'now-1y/fy', display: 'Previous fiscal year' },
 
-  { from: 'now-5m', to: 'now', display: '最后5分钟' },
-  { from: 'now-15m', to: 'now', display: '最后15分钟' },
-  { from: 'now-30m', to: 'now', display: '最后30分钟' },
-  { from: 'now-1h', to: 'now', display: '最后1小时' },
-  { from: 'now-3h', to: 'now', display: '最后3小时' },
-  { from: 'now-6h', to: 'now', display: '最后6小时' },
-  { from: 'now-12h', to: 'now', display: '最后12小时' },
-  { from: 'now-24h', to: 'now', display: '最后24小时' },
-  { from: 'now-2d', to: 'now', display: '最后2天' },
-  { from: 'now-7d', to: 'now', display: '最后7天' },
-  { from: 'now-30d', to: 'now', display: '最后30天' },
-  { from: 'now-90d', to: 'now', display: '最后90天' },
-  { from: 'now-6M', to: 'now', display: '最后6个月' },
-  { from: 'now-1y', to: 'now', display: '最后1年' },
-  { from: 'now-2y', to: 'now', display: '最后2年' },
-  { from: 'now-5y', to: 'now', display: '最后5年' },
-  { from: 'now/fQ', to: 'now', display: '本财季迄今' },
-  { from: 'now/fQ', to: 'now/fQ', display: '本财季' },
-  { from: 'now/fy', to: 'now', display: '本财年迄今' },
-  { from: 'now/fy', to: 'now/fy', display: '本财年' },
+  { from: 'now-5m', to: 'now', display: 'Last 5 minutes' },
+  { from: 'now-15m', to: 'now', display: 'Last 15 minutes' },
+  { from: 'now-30m', to: 'now', display: 'Last 30 minutes' },
+  { from: 'now-1h', to: 'now', display: 'Last 1 hour' },
+  { from: 'now-3h', to: 'now', display: 'Last 3 hours' },
+  { from: 'now-6h', to: 'now', display: 'Last 6 hours' },
+  { from: 'now-12h', to: 'now', display: 'Last 12 hours' },
+  { from: 'now-24h', to: 'now', display: 'Last 24 hours' },
+  { from: 'now-2d', to: 'now', display: 'Last 2 days' },
+  { from: 'now-7d', to: 'now', display: 'Last 7 days' },
+  { from: 'now-30d', to: 'now', display: 'Last 30 days' },
+  { from: 'now-90d', to: 'now', display: 'Last 90 days' },
+  { from: 'now-6M', to: 'now', display: 'Last 6 months' },
+  { from: 'now-1y', to: 'now', display: 'Last 1 year' },
+  { from: 'now-2y', to: 'now', display: 'Last 2 years' },
+  { from: 'now-5y', to: 'now', display: 'Last 5 years' },
+  { from: 'now/fQ', to: 'now', display: 'This fiscal quarter so far' },
+  { from: 'now/fQ', to: 'now/fQ', display: 'This fiscal quarter' },
+  { from: 'now/fy', to: 'now', display: 'This fiscal year so far' },
+  { from: 'now/fy', to: 'now/fy', display: 'This fiscal year' },
 ];
 
 const hiddenRangeOptions: TimeOption[] = [
@@ -101,6 +101,7 @@ each(hiddenRangeOptions, (frame: any) => {
 // now/d
 // if no to <expr> then to now is assumed
 export function describeTextRange(expr: any) {
+  debugger
   const isLast = expr.indexOf('+') !== 0;
   if (expr.indexOf('now') === -1) {
     expr = (isLast ? 'now-' : 'now') + expr;
@@ -124,7 +125,6 @@ export function describeTextRange(expr: any) {
     const span = spans[unit];
     if (span) {
       opt.display = isLast ? 'Last ' : 'Next ';
-      // opt.display = isLast ? '最后 ' : '未来 ';
       opt.display += amount + ' ' + span.display;
       opt.section = span.section;
       if (amount > 1) {
@@ -135,7 +135,6 @@ export function describeTextRange(expr: any) {
     opt.display = opt.from + ' ~ ' + opt.to;
     opt.invalid = true;
   }
-  
 
   return opt;
 }
