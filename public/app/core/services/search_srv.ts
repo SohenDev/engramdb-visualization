@@ -89,6 +89,22 @@ export class SearchSrv {
 
     promises.push(
       backendSrv.search(query).then((results) => {
+        fetch('http://localhost:8989/webapi/get-user',{
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then((response)=>{
+          response.json().then(res=>{
+            debugger
+          })
+          
+          //处理http响应
+          },(error)=>{
+            debugger
+          //处理错误
+          })
+          
         return this.handleSearchResult(sections, results);
       })
     );

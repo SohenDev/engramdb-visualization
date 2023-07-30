@@ -1,32 +1,33 @@
 // Libraries
-// import { css } from '@emotion/css';
-import React, { FC,useEffect } from 'react';
+import { css } from '@emotion/css';
+import React, { FC, useEffect } from 'react';
 
 // Components
-// import { HorizontalGroup, LinkButton } from '@grafana/ui';
+import { HorizontalGroup, LinkButton } from '@grafana/ui';
 import { Branding } from 'app/core/components/Branding/Branding';
 import config from 'app/core/config';
 
-// import { ChangePassword } from '../ForgottenPassword/ChangePassword';
+import { ChangePassword } from '../ForgottenPassword/ChangePassword';
 
-// import LoginCtrl from './LoginCtrl';
-// import { LoginForm } from './LoginForm';
-import { LoginLayout, 
-  // InnerBox 
+import LoginCtrl from './LoginCtrl';
+import { LoginForm } from './LoginForm';
+import {
+  LoginLayout,
+  InnerBox
 } from './LoginLayout';
-// import { LoginServiceButtons } from './LoginServiceButtons';
-// import { UserSignup } from './UserSignup';
+import { LoginServiceButtons } from './LoginServiceButtons';
+import { UserSignup } from './UserSignup';
 
 import { getBackendSrv } from '@grafana/runtime';
 
-// const forgottenPasswordStyles = css`
-//   padding: 0;
-//   margin-top: 4px;
-// `;
+const forgottenPasswordStyles = css`
+  padding: 0;
+  margin-top: 4px;
+`;
 
 export const LoginPage: FC = () => {
 
-  const toGrafana = (result:any) => {
+  const toGrafana = (result: any) => {
     // Use window.location.href to force page reload
     if (result.redirectUrl) {
       if (config.appSubUrl !== '' && !result.redirectUrl.startsWith(config.appSubUrl)) {
@@ -38,7 +39,7 @@ export const LoginPage: FC = () => {
       window.location.assign(config.appSubUrl + '/');
     }
   };
-  useEffect(()=>{
+  const autoLogin = () => {
     const formModel = {
       password: "admin",
       user: "admin"
@@ -62,11 +63,14 @@ export const LoginPage: FC = () => {
         //   isLoggingIn: false,
         // });
       });
-  },[])
+  }
+  useEffect(() => {
+    //
+  }, [])
   document.title = Branding.AppTitle;
   return (
     <LoginLayout>
-      {/* <LoginCtrl>
+      <LoginCtrl>
         {({
           loginHint,
           passwordHint,
@@ -116,7 +120,7 @@ export const LoginPage: FC = () => {
             )}
           </>
         )}
-      </LoginCtrl> */}
+      </LoginCtrl>
     </LoginLayout>
   );
 };
