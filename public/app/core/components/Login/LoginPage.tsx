@@ -18,7 +18,7 @@ import {
 import { LoginServiceButtons } from './LoginServiceButtons';
 import { UserSignup } from './UserSignup';
 
-import { getBackendSrv } from '@grafana/runtime';
+// import { getBackendSrv } from '@grafana/runtime';
 
 const forgottenPasswordStyles = css`
   padding: 0;
@@ -27,43 +27,43 @@ const forgottenPasswordStyles = css`
 
 export const LoginPage: FC = () => {
 
-  const toGrafana = (result: any) => {
-    // Use window.location.href to force page reload
-    if (result.redirectUrl) {
-      if (config.appSubUrl !== '' && !result.redirectUrl.startsWith(config.appSubUrl)) {
-        window.location.assign(config.appSubUrl + result.redirectUrl);
-      } else {
-        window.location.assign(result.redirectUrl);
-      }
-    } else {
-      window.location.assign(config.appSubUrl + '/');
-    }
-  };
-  const autoLogin = () => {
-    const formModel = {
-      password: "admin",
-      user: "admin"
-    }
-    getBackendSrv()
-      .post('/login', formModel)
-      .then((result: any) => {
-        console.log('登录成功')
-        toGrafana(result)
-        // this.result = result;
-        // if (formModel.password !== 'admin' || config.ldapEnabled || config.authProxyEnabled) {
-        //   this.toGrafana();
-        //   return;
-        // } else {
-        //   this.changeView();
-        // }
-      })
-      .catch(() => {
-        console.log('登录出错')
-        // this.setState({
-        //   isLoggingIn: false,
-        // });
-      });
-  }
+  // const toGrafana = (result: any) => {
+  //   // Use window.location.href to force page reload
+  //   if (result.redirectUrl) {
+  //     if (config.appSubUrl !== '' && !result.redirectUrl.startsWith(config.appSubUrl)) {
+  //       window.location.assign(config.appSubUrl + result.redirectUrl);
+  //     } else {
+  //       window.location.assign(result.redirectUrl);
+  //     }
+  //   } else {
+  //     window.location.assign(config.appSubUrl + '/');
+  //   }
+  // };
+  // const autoLogin = () => {
+  //   const formModel = {
+  //     password: "admin",
+  //     user: "admin"
+  //   }
+  //   getBackendSrv()
+  //     .post('/login', formModel)
+  //     .then((result: any) => {
+  //       console.log('登录成功')
+  //       toGrafana(result)
+  //       // this.result = result;
+  //       // if (formModel.password !== 'admin' || config.ldapEnabled || config.authProxyEnabled) {
+  //       //   this.toGrafana();
+  //       //   return;
+  //       // } else {
+  //       //   this.changeView();
+  //       // }
+  //     })
+  //     .catch(() => {
+  //       console.log('登录出错')
+  //       // this.setState({
+  //       //   isLoggingIn: false,
+  //       // });
+  //     });
+  // }
   useEffect(() => {
     //
   }, [])
