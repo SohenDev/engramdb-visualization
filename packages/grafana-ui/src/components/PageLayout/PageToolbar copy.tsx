@@ -2,15 +2,15 @@ import { css, cx } from '@emotion/css';
 import React, { FC, ReactNode } from 'react';
 
 import { GrafanaTheme2 } from '@grafana/data';
-// import { selectors } from '@grafana/e2e-selectors';
+import { selectors } from '@grafana/e2e-selectors';
 
-// import { Link } from '..';
+import { Link } from '..';
 import { styleMixins } from '../../themes';
 import { useStyles2 } from '../../themes/ThemeContext';
 import { getFocusStyles } from '../../themes/mixins';
 import { IconName } from '../../types';
-// import { Icon } from '../Icon/Icon';
-// import { IconButton } from '../IconButton/IconButton';
+import { Icon } from '../Icon/Icon';
+import { IconButton } from '../IconButton/IconButton';
 
 export interface Props {
   pageIcon?: IconName;
@@ -61,12 +61,12 @@ export const PageToolbar: FC<Props> = React.memo(
 
     return (
       <nav className={mainStyle} aria-label={ariaLabel}>
-        {/* {pageIcon && !onGoBack && (
+        {pageIcon && !onGoBack && (
           <div className={styles.pageIcon}>
             <Icon name={pageIcon} size="lg" aria-hidden />
           </div>
-        )} */}
-        {/* {onGoBack && (
+        )}
+        {onGoBack && (
           <div className={styles.pageIcon}>
             <IconButton
               name="arrow-left"
@@ -78,9 +78,9 @@ export const PageToolbar: FC<Props> = React.memo(
               onClick={onGoBack}
             />
           </div>
-        )} */}
+        )}
         <nav aria-label="Search links" className={styles.navElement}>
-          {/* {parent && parentHref && (
+          {parent && parentHref && (
             <>
               <Link
                 aria-label={`Search dashboard in the ${parent} folder`}
@@ -95,9 +95,9 @@ export const PageToolbar: FC<Props> = React.memo(
                 </span>
               )}
             </>
-          )} */}
+          )}
 
-          {/* {title && titleHref && (
+          {title && titleHref && (
             <h1 className={styles.h1Styles}>
               <Link
                 aria-label="Search dashboard by name"
@@ -107,15 +107,14 @@ export const PageToolbar: FC<Props> = React.memo(
                 {title}
               </Link>
             </h1>
-          )} */}
-          {title && titleHref && (<h1 className={styles.titleText}>{title}</h1>)}
+          )}
           {title && !titleHref && <h1 className={styles.titleText}>{title}</h1>}
         </nav>
-        {/* {leftItems?.map((child, index) => (
+        {leftItems?.map((child, index) => (
           <div className={styles.leftActionItem} key={index}>
             {child}
           </div>
-        ))} */}
+        ))}
 
         <div className={styles.spacer} />
         {React.Children.toArray(children)
