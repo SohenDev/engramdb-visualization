@@ -297,6 +297,7 @@ export class PanelChrome extends PureComponent<Props, State> {
   // The next is outside a react synthetic event so setState is not batched
   // So in this context we can only do a single call to setState
   onDataUpdate(data: PanelData) {
+    debugger
     const { dashboard, panel, plugin } = this.props;
 
     // Ignore this data update if we are now a non data panel
