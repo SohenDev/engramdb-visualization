@@ -113,12 +113,28 @@ export function initDashboard(args: InitDashboardArgs): ThunkResult<void> {
 
     // fetch dashboard data
     const dashDTO = await fetchDashboard(args, dispatch, getState);
-
+    
+    
     // returns null if there was a redirect or error
     if (!dashDTO) {
       return;
     }
-
+    // debugger
+    // @ts-ignore
+  //   dashDTO.dashboard.panels[0]['targets'][0]['rawSql'] = `SELECT
+  //   check_time AS "time",
+  //   norm_value ,
+  //   norm_range_low ,
+  //   norm_range_high 
+  // FROM thyroid
+  // WHERE
+  //   norm_name = "甲状腺球蛋白"
+  // ORDER BY check_time`
+  // debugger
+  //通过这边改变dashboard的planels的对应where语句数组参数条件值，返回不同的结果
+  // @ts-ignore
+  // dashDTO.dashboard.panels[0]['targets'][0]['where'][0]['params'][2] = "\"甲状腺球蛋白\""
+  // debugger
     // set initializing state
     dispatch(dashboardInitServices());
 
