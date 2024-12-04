@@ -25,7 +25,7 @@ export const AnnotationsPlugin: React.FC<AnnotationsPluginProps> = ({ annotation
     for (const frame of annotations) {
       views.push(new DataFrameView(frame));
     }
-
+    debugger
     annotationsRef.current = views;
   }, [annotations]);
 
